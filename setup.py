@@ -27,5 +27,8 @@ setup(
         [ckan.plugins]
     # Add plugins here, eg
     trak=ckanext.trak.plugin:TrakPluginClass
+
+    [paste.paster_command]
+	csv2table=ckanext.trak.commands:CSV2Table
     """,
 )

@@ -44,7 +44,9 @@ Example:
               {# h.popular('views', package.tracking_summary.total, min=0) if package.tracking_summary #}
             {% endblock %}
           </h3>
-          {{ h.tracking_info(package) }}
+          {% if h.display_pageviews() %}
+              {{ h.tracking_info(package) }}
+          {% endif %}
         {% endblock %}
         {% block banner %}
           {% if banner %}
