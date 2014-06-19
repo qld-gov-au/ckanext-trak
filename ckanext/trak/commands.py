@@ -26,8 +26,9 @@ class CSV2Table(CkanCommand):
     def __init__(self, name):
         #setup the sqlalchemy engine
         print os.path.realpath(__file__)
-        sqlalchemy_url = 'postgresql://ckan_default:pass@localhost/ckan_default'
-        self.engine = sa.create_engine(sqlalchemy_url)
+        #sqlalchemy_url = 'postgresql://ckan_default:pass@localhost/ckan_default'
+        config.get('sqlalchemy.url')
+	self.engine = sa.create_engine(sqlalchemy_url)
         super(CSV2Table, self).__init__(name)
 
 
