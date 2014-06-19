@@ -39,23 +39,13 @@ class TrakPluginClass(plugins.SingletonPlugin):
 
     def before_index(self, pkg):
 
-        # this method is called for each dataset when the search index is rebuilt
+        # This method is called for each dataset when the search index is rebuilt, e.g.
 	#
         # paster search-index rebuild -c /etc/ckan/default/production.ini
 	#
-        # this is the way to get the search index to include the latest tracking data
+        # This is the way to get the search index to include the latest tracking data
         # for resources (Dataset tracking is okay - the search indexing already picks up on this)
 
-        # the 'pkg' is a flattened python dict. It needs to be unflattened, changed to include
-        # tracking info for the resource (taken from database) and returned
-
-        # this operation needs to be fairly efficient as it will be called for _every_ dataset whenever the search-index is updated
-
-        # you should be able to access the tracking_summary table to get the tracking counts for resources using
-        # import ckan.models.tracking_summary?
-        # if not, you can go the long way round like i did in 'commands.py' to get the tracking_raw table
-
-	#unflatten 'pkg' dict
 	str_dict = pkg.get('data_dict')
 
 	data_dict = json.loads(str_dict)
